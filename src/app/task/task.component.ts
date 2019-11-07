@@ -14,7 +14,6 @@ export class TaskComponent implements OnInit {
   editable = false;
 
   myTodo = {
-    id: 0,
     title: ''
   };
 
@@ -27,7 +26,7 @@ export class TaskComponent implements OnInit {
   }
 
   getAllTodos() {
-    this.todoService.getAll().subscribe((todos: Todo[]) => {
+    this.todoService.getAll().subscribe((todos: any[]) => {
      this.todos = todos;
     })
   }
@@ -49,7 +48,7 @@ export class TaskComponent implements OnInit {
   ;
   }
 
-  deleteTodo(todo) {
+  deleteTodo(id) {
 
 
     Swal.fire({
@@ -62,10 +61,10 @@ export class TaskComponent implements OnInit {
     }).then((result) => {
       if (result.value) {
          
-        //  this.todoService.delete(todo.id).subscribe(() => {
-        //     let index = this.todos.indexOf(todo);
-        //     this.todos.splice(index, 1);
-        //  })
+         this.todoService.delete(id).then(() => {
+           
+         })
+         .catch((err) => console.error(err))
 
         
 
