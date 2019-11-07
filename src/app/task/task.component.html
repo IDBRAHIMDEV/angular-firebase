@@ -1,0 +1,31 @@
+  
+  <div class="row">
+      <div class="col-md-6 mx-auto">
+         
+          <div class="form-group">
+              <label for="todo"></label>
+              <input  [(ngModel)]="myTodo.title" id="todo" placeholder="my todo" type="text" class="form-control">
+              
+          </div>
+
+          <button *ngIf="editable" (click)="updateTodo()" class="btn btn-warning btn-block"><i class="fa fa-refresh"></i> Update todo</button>
+          <button *ngIf="!editable" (click)="addTodo()" class="btn btn-success btn-block"><i class="fa fa-send"></i> New todo</button>
+
+          <ul class="list-group">
+              <li class="list-group-item">
+                    <h4>List todo</h4>
+              </li>
+              <li class="list-group-item" *ngFor="let todo of todos">
+                  {{ todo.title }}
+                  <div class="text-right">
+                      <button (click)="editTodo(todo)" class="btn btn-warning btn-sm">
+                          <i class="fa fa-pencil"></i>
+                      </button>
+                      <button (click)="deleteTodo(todo)" class="btn btn-danger btn-sm">
+                          <i class="fa fa-trash"></i>
+                     </button>
+                </div>
+            </li>
+          </ul>
+      </div>
+  </div>

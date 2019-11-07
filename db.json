@@ -1,0 +1,12 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "title": "Angular 8"
+    },
+    {
+      "id": 3,
+      "title": "AdonisJS"
+    }
+  ]
+}
